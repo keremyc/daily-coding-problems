@@ -13,8 +13,8 @@ public class Solution {
 
     }
 
-    public static void main(String[] args) {
-        System.out.println(solve(6, new int[]{1, 2, 3}));
-    }
+    // public static void main(String[] args) {
+    //     System.out.println(solve(6, new int[]{1, 2, 3}));
+    // }
 
 }
