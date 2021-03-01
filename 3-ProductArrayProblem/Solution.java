@@ -1,5 +1,28 @@
 
 public class Solution {
+
+    public static int[] solve1(int[] arr) {
+
+        int[] result = new int[arr.length];
+
+        // this variable is used to hold the 
+        // product of elements except ith element.
+        int temp = 1;
+        for (int i = 0; i < arr.length; i++) {
+            result[i] = temp; // store the product of elements except ith element in ith element of result.
+            temp *= arr[i]; 
+        }
+
+        // this time, temp variable is used to hold the product
+        // of elements except ith element beginning from the end of array
+        temp = 1;
+        for (int i = arr.length - 1; i >= 0; i--){
+            result[i] *= temp; // multiply the previous product of the left element with the product of right elements.
+            temp *= arr[i];
+        }
+
+        return result;
+    }
     
     public static int[] solve2(int[] arr) {
 
@@ -41,10 +64,17 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        int[] arr = solve2(new int[]{1, 2, 3, 4, 5});
-        
-        for (int i : arr) {
-            System.out.println(i);
+        int[] arr1 = solve1(new int[]{1, 2, 3, 4, 5});
+        int[] arr2 = solve2(new int[]{1, 2, 3, 4, 5});
+        for (int i : arr1) {
+            System.out.print(i + " ");
         }
+        System.out.println();
+
+        for (int i : arr2) {
+            System.out.print(i + " ");
+        }
+
+        System.out.println();
     }
 }
