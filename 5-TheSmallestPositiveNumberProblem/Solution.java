@@ -16,7 +16,7 @@ public class Solution {
         // Reshuffle the array to bring numbers in interval [1, N+1] to front.
         int j = 0, i;
         for (i = 0; i < arr.length; i++){
-            if (arr[i] <= len + 1 && arr[i] >= 1) {
+            if (arr[i] <= len && arr[i] >= 1) {
                 int temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;
@@ -30,21 +30,22 @@ public class Solution {
         // In this case, the first non-negative element's index is the answer.
         for (i = 0; i < j; i++){
             int index = Math.abs(arr[i]) - 1; 
-            arr[index] = -arr[index];
+            if (arr[index] > 0)
+                arr[index] = -arr[index];
         }
 
         // find the first pozitive value and return the index.
-        for (i = 0; i < j; i++){
+        for (i = 0; i < len; i++){
             if (arr[i] > 0)
                 return i + 1;
         }
 
-        // 0 indicates that the array is complete.
-        return 0;
+        // If none of [1, N] is missing, then the answer is N + 1
+        return len + 1;
 
     }
 
     public static void main(String[] args) {
-        System.out.println(solve(new int[]{3, 4, -1, 1}));
+        System.out.println(solve(new int[]{2, 3, 1, 5}));
     }
 }
