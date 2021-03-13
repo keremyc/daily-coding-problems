@@ -18,7 +18,7 @@ public class Solution {
             
             int x = solve(message.substring(1));
 
-            // If int value of the first two chars is greated that 26, 
+            // If int value of the first two chars is greater than 26, 
             // we shouldn't call the function for this way.
             int val = Integer.parseInt(message.substring(0, 2));
             if (val > 26) 
